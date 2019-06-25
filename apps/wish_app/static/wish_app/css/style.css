@@ -1,0 +1,73 @@
+/* login+reg page */
+.reg_table{
+    width: 300px;
+}
+.registration_form{
+    display: inline-block;
+    margin-left: 150px;
+    border: 2px solid lightseagreen;
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
+#password_length{
+    font-size: 9pt;
+}
+#reg_button{
+    text-align: center;
+}
+.reg_table button{
+    height: 30px;
+    width: 70px;
+    font-size: 10pt;
+}
+
+.login_form{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 400px;
+    border: 2px solid lightseagreen;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+}
+.login_form button{
+    height: 30px;
+    width: 70px;
+    font-size: 10pt;
+}
+#error_message ul li{
+    list-style: none;
+}
+
+/* WISHES */
+#wish_list{
+    width: 400px;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+#my_wish_table{
+    border: 2px solid purple;
+}
+#my_wish_table th{
+    background-color: lavender;
+}
+#granted_wishes{
+    min-width: 500px;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+#wish_table{
+    border: 2px solid purple;
+}
+#wish_table th{
+    background-color: lavender;
+}
+#wish_table td{
+    padding: 0px 10px;
+}
+
+/* EDIT PAGE */
+#edit_form{
+    margin-top: 50px;
+    margin-left: 50px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Edit Wish</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wish_app/css/style.css' %}">
+</head>
+<body>
+    <div>
+        <div class="edit_header">
+            <h1>Hello {{ request.session.first_name }}! Let's edit your wish!</h1>
+            <a href="/log_out">Log Out</a>
+        </div>
+        <div id="edit_form">
+            <form action="/wish_edit/{{ wish_profile.id }}" method="POST">
+                {% csrf_token%}
+                <table>
+                    <tr>
+                        <td>I wish for: </td>
+                        <td><input type="text" name="item_input" value="{{ wish_profile.item }}"></td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td><textarea cols="40" rows="6" name="description_input">{{ wish_profile.description }}</textarea></td>
+                    </tr>
+                </table>
+                <button>Edit Wish</button>
+            </form>
+            <a href="/wishes"><button>Cancel</button></a>
+
+            <div id="error_message">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

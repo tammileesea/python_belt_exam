@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Wish Stats</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wish_app/css/style.css' %}">
+</head>
+<body>
+    <div>
+        <div class="view_trip_header">
+            <h1>Hello {{ request.session.first_name }}! These are your stats!</h1>
+            <p><a href="/wishes">Dashboard</a> | <a href="/log_out">Log Out</a></p>
+        </div>
+        <div id="trip_details">
+            <h3>Total wishes granted so far for all users: {{all_grants}}</h3>
+            <h3>Your granted wishes: {{my_grants}}</h3>
+            <h3>Your pending wishes: {{pending_wishes}}</h3>
+        </div>
+    </div>
+</body>
+</html>

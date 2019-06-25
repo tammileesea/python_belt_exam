@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login and Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wish_app/css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'new_belt_app/js/script.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome! Sign in to make a wish!!!</h1>
+        </div>
+        <hr>
+        <div class="registration_form">
+            <form action="/registration_success" onsubmit="return validateForm()" method="POST" name="registration_form" id="registration_form">
+                {% csrf_token %}
+                <h1>Register</h1>
+                <table class="reg_table">
+                    <tr>
+                        <td><p>First Name</p></td>
+                        <td><input type="text" name="first_name_input"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Last Name</p></td>
+                        <td><input type="text" name="last_name_input"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Email</p></td>
+                        <td><input type="text" name="email_input" id="email_input"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Password</p></td>
+                        <td><input type="password" name="password_input"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="password_length">*password should be a minimum of 8 characters</td>
+                    </tr>
+                    <tr>
+                        <td><p>Confirm Password</p></td>
+                        <td><input type="password" name="password_confirmation_input"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="reg_button"><button>Register</button></td>
+                    </tr>
+                </table>
+            </form>
+            <div id="error_message">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        <div class="login_form">
+            <form action="/login_success" method="POST">
+                {% csrf_token %}
+                <h1>Log In</h1>
+                <p>{{ login_error_message }}</p>
+                <table>
+                    <tr>
+                        <td><p>Email</p></td>
+                        <td><input type="text" name="email_input"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Password</p></td>
+                        <td><input type="password" name="password_input"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="reg_button"><button>Log In</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
